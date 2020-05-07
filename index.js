@@ -93,19 +93,18 @@
   function checkStatus(response) {
     if (response.ok) {
       return response;
-    } else {
-      throw Error("Error in request: " + response.statusText);
     }
+    throw Error("Error in request: " + response.statusText);
   }
 
    /**
-   * Returns an element object based on the parameter element's (String) ID.
-   * @param {string} idName - the element whose ID will be used
-   * @returns {object} the object that is associated with element's ID
-   */
-  function id(idName) {
-    return document.getElementById(idName);
-  }
+    * Returns an element object based on the parameter element's (String) ID.
+    * @param {string} idName - the element whose ID will be used
+    * @returns {object} the object that is associated with element's ID
+    */
+   function id(idName) {
+     return document.getElementById(idName);
+   }
 
   /**
    * Returns an element object based on the parameter element's (String) class.
