@@ -98,19 +98,19 @@
     }
   }
 
-   /**
-    * Returns an element object based on the parameter element's (String) ID.
-    * @param {string} idName - the element whose ID will be used
-    * @returns {object} the object that is associated with element's ID
-    */
-   function id(idName) {
-     return document.getElementById(idName);
-   }
+  /**
+   * Returns an element object based on the parameter's (String) ID.
+   * @param {string} idName - the element whose ID will be used
+   * @returns {object} the object that is associated with element's ID
+   */
+  function id(idName) {
+    return document.getElementById(idName);
+  }
 
   /**
-   * Returns an element object based on the parameter element's (String) class.
+   * Returns an element object based on the parameter's (String) class.
    * @param {string} selector - the element whose class will be used
-   * @returns {object} the object that is associated with element's ID
+   * @returns {object} The first DOM object matching the query
    */
   function qs(selector) {
     return document.querySelector(selector);
