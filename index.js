@@ -9,7 +9,7 @@
 (function() {
 
   let pokemonName;
-  const BASE_URL = "https://pokeapi.co/api/v2/";
+  const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 
   window.addEventListener("load", init);
 
@@ -18,15 +18,49 @@
   }
 
   function goPokemon() {
+    clear();
     pokemonName = id("input").value + "/";
     let url = BASE_URL + pokemonName;
+    console.log(url);
+
+    fetch(url)
+      .then(response => checkStatus(response))
+      .then(convert => convert.json())
+      .then(data => getData(data))
+      .then(abilities => create(abilities))
+      .catch(err => error(err));
   }
 
-  function create(data) {
+  function clear() {
+    let main = qs("main");
+    while (main.contains(id("abilities"))) {
+      let myId = id("abilities");
+      main.removeChild(myId);
+    }
+  }
 
+  function error(err) {
+    let div = document.createElement("div");
+    div.textContent = "Please insert a valid Pokemon name";
+    div.id = "abilities";
+    qs("main").appendChild(div);
+  }
+
+  function create(abilities) {
+    for (let i = 0; i < abilities.length; i++) {
+      let div = document.createElement("div");
+      div.textContent = abilities[i].ability.name;
+      div.id = "abilities";
+      qs("main").appendChild(div);
+    }
+  }
+
+  function getData(data) {
+    return data.abilities;
   }
 
   function checkStatus(response) {
+    console.log(response);
     if (response.ok) {
       return response;
     } else {
