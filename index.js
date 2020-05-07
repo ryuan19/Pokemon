@@ -26,8 +26,8 @@
    */
   function goPokemon() {
     clear();
-    pokemonName = id("input").value + "/";
-    let url = BASE_URL + pokemonName;
+    pokemonName = id("input").value;
+    let url = BASE_URL + pokemonName.toLowerCase() + "/";
     fetch(url)
       .then(response => checkStatus(response))
       .then(convert => convert.json())
