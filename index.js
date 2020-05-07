@@ -93,8 +93,9 @@
   function checkStatus(response) {
     if (response.ok) {
       return response;
+    } else {
+      throw Error("Error in request: " + response.statusText);
     }
-    throw Error("Error in request: " + response.statusText);
   }
 
    /**
