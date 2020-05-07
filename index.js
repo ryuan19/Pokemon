@@ -100,7 +100,7 @@
 
    /**
    * Returns an element object based on the parameter element's (String) ID.
-   * @param {*} element - the element whose ID will be used
+   * @param {string} idName - the element whose ID will be used
    * @returns {object} the object that is associated with element's ID
    */
   function id(idName) {
@@ -109,7 +109,7 @@
 
   /**
    * Returns an element object based on the parameter element's (String) class.
-   * @param {*} element - the element whose class will be used
+   * @param {string} selector - the element whose class will be used
    * @returns {object} the object that is associated with element's ID
    */
   function qs(selector) {
