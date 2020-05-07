@@ -2,7 +2,9 @@
  * Name: Roy Yuan
  * Date: May 6, 2020
  * Section AF with Jack Venburg
- * description
+ * This is the index.js page. It fetches information about Pokemon abilities from the PokeAPI page.
+ * It is used by my index.html page to allow the user to interact with buttons.
+
  */
 "use strict";
 
@@ -21,8 +23,6 @@
     clear();
     pokemonName = id("input").value + "/";
     let url = BASE_URL + pokemonName;
-    console.log(url);
-
     fetch(url)
       .then(response => checkStatus(response))
       .then(convert => convert.json())
@@ -40,19 +40,20 @@
   }
 
   function error(err) {
-    let div = document.createElement("div");
-    div.textContent = "Please insert a valid Pokemon name";
-    div.id = "abilities";
-    qs("main").appendChild(div);
+    make("Plese insert a valid Pokemon name")
   }
 
   function create(abilities) {
     for (let i = 0; i < abilities.length; i++) {
-      let div = document.createElement("div");
-      div.textContent = abilities[i].ability.name;
-      div.id = "abilities";
-      qs("main").appendChild(div);
+      make(abilities[i].ability.name);
     }
+  }
+
+  function make(element) {
+    let div = document.createElement("div");
+    div.textContent = element;
+    div.id = "abilities";
+    qs("main").appendChild(div);
   }
 
   function getData(data) {
@@ -60,17 +61,11 @@
   }
 
   function checkStatus(response) {
-    console.log(response);
     if (response.ok) {
       return response;
     } else {
       throw Error("Error in request: " + response.statusText);
     }
-  }
-
-
-  function handleError() {
-    console.log(input.textValue);
   }
 
   function id(idName) {
@@ -80,6 +75,4 @@
   function qs(selector) {
     return document.querySelector(selector);
   }
-
-
 })();
