@@ -6,7 +6,6 @@
   This is the styles.css page for my portfolio of web development work. It is used by my index.html
   page to give the sites a better look and feel for the user.
 
-
 */
 
 body {
@@ -28,7 +27,7 @@ div, img {
 }
 
 img {
-  position:absolute;
+  position: absolute;
   top: 0;
   right: 0;
   height: 10%;
@@ -53,8 +52,8 @@ header p {
 }
 
 footer {
-  position:absolute;
-  bottom:0;
+  position: absolute;
+  bottom: 0;
   right: 0;
   margin-right: 10px;
   color: white;
