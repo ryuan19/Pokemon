@@ -1,7 +1,6 @@
 /**
  * Name: Roy Yuan
  * Date: May 6, 2020
- * Section AF with Jack Venburg
  * This is the index.js page. It fetches information about Pokemon abilities from the PokeAPI page.
  * It is used by my index.html page to allow the user to interact with buttons.
  */
